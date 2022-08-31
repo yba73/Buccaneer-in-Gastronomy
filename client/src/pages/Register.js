@@ -2,10 +2,27 @@ import React from "react";
 import "./css/register.css";
 const Register = () => {
   return (
-    <div>
+    <div className="dinbody">
       <div className="container">
         <form action="#" className="login active">
-          <h2 className="title">Login with your account</h2>
+          <h2 className="title">Registration</h2>
+
+          <div className="form-group">
+            <label for="text">Name</label>
+            <div className="input-group">
+              <input type="text" placeholder="Entre your name" />
+              <i className="bx bx-envelope"></i>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label for="text">Username</label>
+            <div className="input-group">
+              <input type="text" placeholder="Entre your Username" />
+              <i className="bx bx-envelope"></i>
+            </div>
+          </div>
+
           <div className="form-group">
             <label for="email">Email</label>
             <div className="input-group">
@@ -13,6 +30,7 @@ const Register = () => {
               <i className="bx bx-envelope"></i>
             </div>
           </div>
+
           <div className="form-group">
             <label for="password">Password</label>
             <div className="input-group">
@@ -27,12 +45,8 @@ const Register = () => {
             <span className="help-text">At least 8 characters</span>
           </div>
           <button type="submit" className="btn-submit">
-            Login
+            Register
           </button>
-          <a href="#h">Forgot password?</a>
-          <p>
-            I don't have an account. <a href="#h">Register</a>
-          </p>
         </form>
 
         <form action="#" className="register">

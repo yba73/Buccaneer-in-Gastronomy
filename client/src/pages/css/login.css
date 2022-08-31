@@ -1,0 +1,14 @@
+.formlogin {
+  width: 50%;
+  height: 60%;
+  padding: 28px;
+  border-radius: 12px;
+  background: #fff;
+  position: absolute;
+  top: 57%;
+  transform: translateY(-50%) scale(0.8);
+  opacity: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  transition-delay: 0s;
+}
