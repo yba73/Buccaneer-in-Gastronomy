@@ -6,6 +6,13 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.containerregister {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 :root {
   --grey: #f4f2ff;
@@ -40,8 +47,8 @@ a:hover {
 }
 
 form {
-  width: 50%;
-  height: 82%;
+  width: 40%;
+  height: 80%;
   padding: 28px;
   border-radius: 12px;
   background: #fff;
@@ -83,6 +90,7 @@ form.active {
   border: 1px solid var(--dark-grey);
   width: 100%;
   transition: all 0.3s ease;
+  font-size: 14px;
 }
 
 /* Validation */
@@ -119,15 +127,6 @@ form.active {
 }
 /* Validation */
 
-.input-group i {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 20px;
-  color: var(--text);
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
 .form-group .help-text {
   font-size: 12px;
   color: var(--text);

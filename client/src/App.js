@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import Navigationsbar from "./components/Navigationsbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <div>
@@ -17,7 +18,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />{" "}
+        </Route>
       </Routes>
     </div>
   );

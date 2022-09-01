@@ -1,99 +1,104 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./css/register.css";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../slices/userSlice";
+import { useNavigate } from "react-router-dom";
+
 const Register = () => {
+  const nav = useNavigate();
+  const { errors: userErrors, isAuth } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (isAuth) nav("/profile");
+  }, [isAuth]);
+  const dispatch = useDispatch();
+
+  // Function Submit data */
+
+  const submitRegister = (RegisterData) => {
+    console.log(RegisterData);
+    dispatch(registerUser(RegisterData));
+  };
+
+  // Function React hook form */
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return (
     <div className="dinbody">
-      <div className="container">
-        <form action="#" className="login active">
+      <div className="containerregister">
+        <form
+          action="#"
+          className="login active"
+          onSubmit={handleSubmit(submitRegister)}
+        >
           <h2 className="title">Registration</h2>
 
+          {/* Username */}
           <div className="form-group">
-            <label for="text">Name</label>
+            <label>Username</label>
             <div className="input-group">
-              <input type="text" placeholder="Entre your name" />
-              <i className="bx bx-envelope"></i>
+              <input
+                type="text"
+                placeholder="Entre your Username"
+                {...register("username")}
+              />
             </div>
           </div>
 
+          {/* Email */}
           <div className="form-group">
-            <label for="text">Username</label>
+            <label>Email</label>
             <div className="input-group">
-              <input type="text" placeholder="Entre your Username" />
-              <i className="bx bx-envelope"></i>
+              <input
+                // style={{
+                //   borderColor: cheked ? "green" : "red",
+                //   color: cheked ? "green" : "red",
+                //   boxShadow: cheked ? "green" : "0 0 0 4px #ffd2d2",
+                // }}
+                type="email"
+                id="email"
+                placeholder="Email address"
+                {...register("email", {
+                  required: true,
+                  pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                })}
+              />
+              {errors.email && <p>Invalid Email </p>}
+              {userErrors && (
+                <h5 style={{ color: "red" }}>Email already registered</h5>
+              )}
+
+              {/* {cheked ? null : (
+                <h5 style={{ color: "red" }}> Email already registered </h5>
+              )} */}
             </div>
           </div>
 
+          {/* Password */}
           <div className="form-group">
-            <label for="email">Email</label>
-            <div className="input-group">
-              <input type="email" id="email" placeholder="Email address" />
-              <i className="bx bx-envelope"></i>
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label for="password">Password</label>
+            <label>Password</label>
             <div className="input-group">
               <input
                 type="password"
                 pattern=".{8,}"
                 id="password"
                 placeholder="Your password"
+                {...register("password")}
               />
-              <i className="bx bx-lock-alt"></i>
             </div>
             <span className="help-text">At least 8 characters</span>
           </div>
-          <button type="submit" className="btn-submit">
-            Register
-          </button>
-        </form>
 
-        <form action="#" className="register">
-          <h2 className="title">Register your account</h2>
-          <div className="form-group">
-            <label for="email">Email</label>
-            <div className="input-group">
-              <input type="email" id="email" placeholder="Email address" />
-              <i className="bx bx-envelope"></i>
-            </div>
-          </div>
-          <div className="form-group">
-            <label for="password">Password</label>
-            <div className="input-group">
-              <input
-                type="password"
-                pattern=".{8,}"
-                id="password"
-                placeholder="Your password"
-              />
-              <i className="bx bx-lock-alt"></i>
-            </div>
-            <span className="help-text">At least 8 characters</span>
-          </div>
-          <div className="form-group">
-            <label for="confirm-pass">Confirm password</label>
-            <div className="input-group">
-              <input
-                type="password"
-                id="confirm-pass"
-                placeholder="Enter password again"
-              />
-              <i className="bx bx-lock-alt"></i>
-            </div>
-            <span className="help-text">
-              Confirm password must be same with password
-            </span>
-          </div>
+          {/* button Register */}
           <button type="submit" className="btn-submit">
             Register
           </button>
-          <p>
-            I already have an account.{" "}
-            <a href="#h" onclick="switchForm('login', event)">
-              Login
-            </a>
-          </p>
         </form>
       </div>
     </div>

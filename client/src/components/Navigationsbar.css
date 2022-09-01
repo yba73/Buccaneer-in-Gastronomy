@@ -22,56 +22,7 @@ html {
 a {
   text-decoration: none;
 }
-.container {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-p {
-  color: black;
-  font-size: 1.4rem;
-  margin-top: 5px;
-  line-height: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 0.05rem;
-}
-.section-title {
-  font-size: 4rem;
-  font-weight: 300;
-  color: black;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  text-align: center;
-}
-.section-title span {
-  color: crimson;
-}
 
-.cta {
-  display: inline-block;
-  padding: 10px 30px;
-  color: white;
-  background-color: transparent;
-  border: 2px solid crimson;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  margin-top: 30px;
-  transition: 0.3s ease;
-  transition-property: background-color, color;
-}
-.cta:hover {
-  color: white;
-  background-color: crimson;
-}
 .brand h1 {
   font-size: 3rem;
   text-transform: uppercase;
@@ -242,22 +193,8 @@ p {
 }
 /* End Keyframes */
 
-/* Media Query For Tablet */
-@media only screen and (min-width: 768px) {
-  .cta {
-    font-size: 2.5rem;
-    padding: 20px 60px;
-  }
-  h1.section-title {
-    font-size: 6rem;
-  }
-
-  /* Hero */
-}
-/* End Media Query For Tablet */
-
 /* Media Query For Desktop */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 880px) {
   /* header */
   #header .hamburger {
     display: none;

@@ -1,4 +1,13 @@
 /* Hero Section */
+
+.containerhome {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #hero {
   background-size: cover;
   background-position: top center;

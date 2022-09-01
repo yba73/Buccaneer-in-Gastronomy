@@ -1,22 +1,25 @@
 import React from "react";
 import "./Navigationsbar.css";
-// import { Navbar, Container, Nav } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Navigationsbar = () => {
+  const { isAuth } = useSelector((state) => state.user);
+
   return (
     <section id="header">
-      <div class="nav">
-        <div class="nav-bar">
-          <div class="brand">
+      <div className="nav">
+        <div className="nav-bar">
+          <div className="brand">
             <a href="#hero">
               <h1>
                 <span>Buccaneer</span> in <span>Gastr</span>ronomy
               </h1>
             </a>
           </div>
-          <div class="nav-list">
-            <div class="hamburger">
-              <div class="bar"></div>
+          <div className="nav-list">
+            <div className="hamburger">
+              <div className="bar"></div>
             </div>
             <ul>
               <li>
@@ -24,24 +27,30 @@ const Navigationsbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link className="link_a" to="/profile">
-                  Profile
-                </Link>
-              </li>
+
+              {isAuth ? (
+                <li>
+                  <Link className="link_a" to="/profile">
+                    Profile
+                  </Link>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <Link className="link_a" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="link_a" to="/register">
+                      register
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
                 <Link className="link_a" to="/contact">
                   Contact
-                </Link>
-              </li>
-              <li>
-                <Link className="link_a" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link className="link_a" to="/register">
-                  register
                 </Link>
               </li>
             </ul>
@@ -54,4 +63,4 @@ const Navigationsbar = () => {
 
 export default Navigationsbar;
 
-<Link className="link_a" to="/register"></Link>;
+<Link classNameName="link_a" to="/register"></Link>;
