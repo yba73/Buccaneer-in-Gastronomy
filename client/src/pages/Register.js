@@ -17,7 +17,6 @@ const Register = () => {
   // Function Submit data */
 
   const submitRegister = (RegisterData) => {
-    console.log(RegisterData);
     dispatch(registerUser(RegisterData));
   };
 
@@ -30,7 +29,7 @@ const Register = () => {
   } = useForm();
 
   return (
-    <div className="dinbody">
+    <div className="dinbodyRegister">
       <div className="containerregister">
         <form
           action="#"
@@ -70,9 +69,7 @@ const Register = () => {
                 })}
               />
               {errors.email && <p>Invalid Email </p>}
-              {userErrors && (
-                <h5 style={{ color: "red" }}>Email already registered</h5>
-              )}
+              {userErrors && <p className="ErrorsMsg">{userErrors}</p>}
 
               {/* {cheked ? null : (
                 <h5 style={{ color: "red" }}> Email already registered </h5>

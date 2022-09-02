@@ -2,10 +2,15 @@ import React from "react";
 import "./Navigationsbar.css";
 
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../slices/userSlice";
 const Navigationsbar = () => {
   const { isAuth } = useSelector((state) => state.user);
-
+  const dispatch = useDispatch();
+  const logouthandler = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+  };
   return (
     <section id="header">
       <div className="nav">
@@ -29,11 +34,17 @@ const Navigationsbar = () => {
               </li>
 
               {isAuth ? (
-                <li>
-                  <Link className="link_a" to="/profile">
-                    Profile
-                  </Link>
-                </li>
+                <>
+                  <li>
+                    <Link className="link_a" to="/profile">
+                      Profile
+                    </Link>
+                  </li>
+                  {/* <button onClick={logouthandler}> Logout </button> */}
+                  <button className="buttonLogout" onClick={logouthandler}>
+                    Logout
+                  </button>
+                </>
               ) : (
                 <>
                   <li>

@@ -14,7 +14,7 @@ exports.register = async (req, res) => {
     const { username, email, password } = req.body;
     const existUser = await User.findOne({ email });
     if (existUser)
-      return res.status(400).json({ msg: "User already registread" });
+      return res.status(400).json({ msg: "User already registread." });
 
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(password, salt);
@@ -23,7 +23,7 @@ exports.register = async (req, res) => {
     res.json({ success: true, token });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ msg: "something went wrong ." });
+    res.status(500).json({ msg: "something went wrong." });
   }
 };
 
@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ msg: "You should register first." });
 
     var validate = await bcrypt.compare(password, existUser.password);
-    if (!validate) return res.status(400).json({ msg: "invalid passwordS" });
+    if (!validate) return res.status(400).json({ msg: "Invalid password." });
     const token = jwt.sign({ sub: existUser._id }, process.env.JWT_SECRT);
     res.json({ success: true, token });
   } catch (error) {

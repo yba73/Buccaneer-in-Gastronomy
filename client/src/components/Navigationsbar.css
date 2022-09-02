@@ -22,7 +22,14 @@ html {
 a {
   text-decoration: none;
 }
-
+.buttonLogout {
+  background-color: "#ECF0F1";
+  border-color: "#1B2631";
+  width: "80px";
+  height: "40px";
+  border-radius: "12px";
+  font-size: "20px";
+}
 .brand h1 {
   font-size: 3rem;
   text-transform: uppercase;
